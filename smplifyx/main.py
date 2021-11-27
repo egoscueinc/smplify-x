@@ -77,8 +77,7 @@ def main(**args):
 
     use_cuda = args.get('use_cuda', True)
     if use_cuda and not torch.cuda.is_available():
-        print('CUDA is not available, exiting!')
-        sys.exit(-1)
+        print('CUDA is not available, running on CPU!')
 
     img_folder = args.pop('img_folder', 'images')
     dataset_obj = create_dataset(img_folder=img_folder, **args)
