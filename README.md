@@ -128,3 +128,14 @@ The code of this repository was implemented by [Vassilis Choutas](mailto:vassili
 For questions, please contact [smplx@tue.mpg.de](mailto:smplx@tue.mpg.de). 
 
 For commercial licensing (and all related questions for business applications), please contact [ps-licensing@tue.mpg.de](mailto:ps-licensing@tue.mpg.de).
+
+# Sample Images Credits
+
+data/images/sample_image1.jpg
+
+- author: [Jan Jespersen](https://www.flickr.com/photos/tringa/2731467555/)
+- license: https://creativecommons.org/licenses/by-nc/2.0/
+
+data/images/sample_image2.jpg
+- source: https://pixabay.com/photos/brunette-full-body-whole-person-487061/
+- license: https://pixabay.com/service/license/
