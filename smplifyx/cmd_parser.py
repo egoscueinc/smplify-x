@@ -56,6 +56,10 @@ def parse_config(argv=None):
                         type=lambda arg: arg.lower() == 'true',
                         default=False,
                         help='Display plots while running the optimization')
+    parser.add_argument('--save_visualization',
+                        type=lambda arg: arg.lower() == 'true',
+                        default=False,
+                        help='Save final output mesh overlaying input image')
     parser.add_argument('--degrees', type=float, default=[0, 90, 180, 270],
                         nargs='*',
                         help='Degrees of rotation for rendering the final' +

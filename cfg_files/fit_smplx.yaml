@@ -44,6 +44,7 @@ lr: 1.0
 maxiters: 30
 interactive: True
 visualize: False
+save_visualization: True
 # Relative change in loss value
 body_pose_prior_weights:
     - 4.04e2

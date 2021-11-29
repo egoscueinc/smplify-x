@@ -81,6 +81,25 @@ python smplifyx/render_results.py --mesh_fns OUTPUT_MESH_FOLDER
 ```
 where *OUTPUT_MESH_FOLDER* is the folder that contains the resulting meshes.
 
+### Headless Resulting Mesh Visualization
+
+For visualization without a display (e.g. in a docker container):
+
+set options (yaml or command line):
+```
+visualize: False  # this is 
+save_visualization: True
+```
+
+Run `smplifyx` with the pyopengl backend set to `egl`, e.g.:
+```
+PYOPENGL_PLATFORM=egl python smplifyx/main.py --config cfg_files/fit_smplx.yaml  --model_folder models
+```
+
+See https://pyrender.readthedocs.io/en/latest/examples/offscreen.html#offscreen-guide and 
+https://pyrender.readthedocs.io/en/latest/install/index.html#osmesa in case of problems with `pyrender` in headless 
+mode.
+
 ## Dependencies
 
 Follow the installation instructions for each of the following before using the
@@ -95,8 +114,9 @@ fitting code.
 
 1. [PyTorch Mesh self-intersection](https://github.com/vchoutas/torch-mesh-isect) for interpenetration penalty 
    * Download the per-triangle part segmentation: [smplx_parts_segm.pkl](https://owncloud.tuebingen.mpg.de/index.php/s/MWnr8Kso4K8T8at)
-1. [Trimesh](https://trimsh.org/) for loading triangular meshes
-1. [Pyrender](https://pyrender.readthedocs.io/) for visualization
+2. [Trimesh](https://trimsh.org/) for loading triangular meshes
+3. [Pyrender](https://pyrender.readthedocs.io/) for visualization
+
 
 The code has been tested with Python 3.6, CUDA 10.0, CuDNN 7.3 and PyTorch 1.0 on Ubuntu 18.04. 
 
@@ -121,15 +141,7 @@ The LBFGS optimizer with Strong Wolfe Line search is taken from this [Pytorch pu
 [Du Phan](https://github.com/fehiepsi) for implementing this. 
 We will update the repository once the pull request is merged.
 
-## Contact
-The code of this repository was implemented by [Vassilis Choutas](mailto:vassilis.choutas@tuebingen.mpg.de) and
-[Georgios Pavlakos](mailto:pavlakos@seas.upenn.edu).
-
-For questions, please contact [smplx@tue.mpg.de](mailto:smplx@tue.mpg.de). 
-
-For commercial licensing (and all related questions for business applications), please contact [ps-licensing@tue.mpg.de](mailto:ps-licensing@tue.mpg.de).
-
-# Sample Images Credits
+### Sample Images Credits
 
 data/images/sample_image1.jpg
 
@@ -139,3 +151,11 @@ data/images/sample_image1.jpg
 data/images/sample_image2.jpg
 - source: https://pixabay.com/photos/brunette-full-body-whole-person-487061/
 - license: https://pixabay.com/service/license/
+
+## Contact
+The code of this repository was implemented by [Vassilis Choutas](mailto:vassilis.choutas@tuebingen.mpg.de) and
+[Georgios Pavlakos](mailto:pavlakos@seas.upenn.edu).
+
+For questions, please contact [smplx@tue.mpg.de](mailto:smplx@tue.mpg.de). 
+
+For commercial licensing (and all related questions for business applications), please contact [ps-licensing@tue.mpg.de](mailto:ps-licensing@tue.mpg.de).

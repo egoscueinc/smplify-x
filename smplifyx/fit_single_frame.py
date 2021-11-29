@@ -90,6 +90,7 @@ def fit_single_frame(img,
                      use_joints_conf=False,
                      interactive=True,
                      visualize=False,
+                     save_visualization=False,
                      save_meshes=True,
                      degrees=None,
                      batch_size=1,
@@ -482,7 +483,7 @@ def fit_single_frame(img,
                 min_idx = 0
             pickle.dump(results[min_idx]['result'], result_file, protocol=2)
 
-    if save_meshes or visualize:
+    if save_meshes or save_visualization:
         body_pose = vposer.decode(
             pose_embedding,
             output_type='aa').view(1, -1) if use_vposer else None
@@ -506,7 +507,7 @@ def fit_single_frame(img,
         out_mesh.apply_transform(rot)
         out_mesh.export(mesh_fn)
 
-    if visualize:
+    if save_visualization:
         import pyrender
 
         material = pyrender.MetallicRoughnessMaterial(
@@ -535,8 +536,7 @@ def fit_single_frame(img,
             cx=camera_center[0], cy=camera_center[1])
         scene.add(camera, pose=camera_pose)
 
-        # Get the lights from the viewer
-        light_nodes = monitor.mv.viewer._create_raymond_lights()
+        light_nodes = pyrender.viewer.Viewer._create_raymond_lights(None)
         for node in light_nodes:
             scene.add_node(node)
 
