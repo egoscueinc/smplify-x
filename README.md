@@ -38,7 +38,7 @@ This repository contains the fitting code used for the experiments in [Expressiv
 ### Fitting 
 Run the following command to execute the code:
 ```Shell
-python smplifyx/main.py --config cfg_files/fit_smplx.yaml 
+python -m smplifyx --config cfg_files/fit_smplx.yaml 
     --data_folder DATA_FOLDER 
     --output_folder OUTPUT_FOLDER 
     --visualize="True/False"
@@ -56,7 +56,7 @@ To fit [SMPL](http://smpl.is.tue.mpg.de/) or [SMPL+H](http://mano.is.tue.mpg.de)
 with either *fit_smpl.yaml* or *fit_smplx.yaml*, i.e.:
  * for SMPL:
  ```Shell
- python smplifyx/main.py --config cfg_files/fit_smpl.yaml 
+ python -m smplifyx --config cfg_files/fit_smpl.yaml 
     --data_folder DATA_FOLDER 
     --output_folder OUTPUT_FOLDER 
     --visualize="True/False"
@@ -65,7 +65,7 @@ with either *fit_smpl.yaml* or *fit_smplx.yaml*, i.e.:
  ```
   * for SMPL+H:
  ```Shell
- python smplifyx/main.py --config cfg_files/fit_smplh.yaml 
+ python -m smplifyx --config cfg_files/fit_smplh.yaml 
     --data_folder DATA_FOLDER 
     --output_folder OUTPUT_FOLDER 
     --visualize="True/False"
@@ -77,7 +77,7 @@ with either *fit_smpl.yaml* or *fit_smplx.yaml*, i.e.:
 
 To visualize the results produced by the method you can run the following script:
 ```Shell
-python smplifyx/render_results.py --mesh_fns OUTPUT_MESH_FOLDER
+python -m smplifyx.render_results --mesh_fns OUTPUT_MESH_FOLDER
 ```
 where *OUTPUT_MESH_FOLDER* is the folder that contains the resulting meshes.
 
@@ -93,7 +93,7 @@ save_visualization: True
 
 Run `smplifyx` with the pyopengl backend set to `egl`, e.g.:
 ```
-PYOPENGL_PLATFORM=egl python smplifyx/main.py --config cfg_files/fit_smplx.yaml  --model_folder models
+PYOPENGL_PLATFORM=egl python -m smplifyx --config cfg_files/fit_smplx.yaml  --model_folder models
 ```
 
 See https://pyrender.readthedocs.io/en/latest/examples/offscreen.html#offscreen-guide and 
