@@ -30,13 +30,12 @@ import torch
 
 import smplx
 
-from utils import JointMapper
-from cmd_parser import parse_config
-from data_parser import create_dataset
-from fit_single_frame import fit_single_frame
+from .utils import JointMapper
+from .data_parser import create_dataset
+from .fit_single_frame import fit_single_frame
 
-from camera import create_camera
-from prior import create_prior
+from .camera import create_camera
+from .prior import create_prior
 
 torch.backends.cudnn.enabled = False
 
@@ -265,7 +264,3 @@ def main(**args):
                              time.gmtime(elapsed))
     print('Processing the data took: {}'.format(time_msg))
 
-
-if __name__ == "__main__":
-    args = parse_config()
-    main(**args)

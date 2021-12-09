@@ -15,7 +15,6 @@
 #
 # Contact: ps-license@tuebingen.mpg.de
 
-import fitting
-import data_parser
-
-from fit_single_frame import fit_single_frame
+from . import fitting
+from . import data_parser
+from .fit_single_frame import fit_single_frame

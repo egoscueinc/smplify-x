@@ -29,8 +29,8 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-from mesh_viewer import MeshViewer
-import utils
+from .mesh_viewer import MeshViewer
+from . import utils
 
 
 @torch.no_grad()
