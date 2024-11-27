@@ -1,6 +1,6 @@
 numpy>=1.16.2
 torch>=1.0.1.post2
-PyYAML==5.1.1
+PyYAML==5.4
 configargparse
 smplx
 pillow
